@@ -1,8 +1,8 @@
 import 'input_page.dart';
 import 'package:flutter/material.dart';
-import 'constant.dart';
-import 'reuseable_card.dart';
-import 'buttom_button.dart';
+import '../constant.dart';
+import '../components/reuseable_card.dart';
+import '../components/buttom_button.dart';
 
 class ResultsPage extends StatelessWidget {
   double bmi = 85.2;
