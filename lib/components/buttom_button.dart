@@ -21,7 +21,7 @@ class ButtomButton extends StatelessWidget {
           ),
         ),
         margin: EdgeInsets.only(top: 10),
-        color: kButtomButtonColor,
+        color: Colors.grey,
         padding: EdgeInsets.only(bottom: 20),
         height: buttomContainerHeight,
         width: double.infinity,

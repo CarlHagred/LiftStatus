@@ -1,5 +1,6 @@
-import 'package:lift_status/exercise.dart';
+import 'package:lift_status/exercise_page.dart';
 import 'package:flutter/material.dart';
+import 'model/exercises.dart';
 
 class HomeScreenPage extends StatefulWidget {
   HomeScreenPage({this.title});
@@ -21,18 +22,48 @@ class _HomeScreenState extends State<HomeScreenPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            /*TODO Lägg till ternary operator med funktion som kollar om litsan av övningar är tom. är den det ska texten nedan visas och annars ska övningarna visas. */
-            Text(
-              'Press the plus button to add exercises',
+            Expanded(
+              child: ListView.builder(
+                padding: const EdgeInsets.all(15),
+                itemCount: exercisesList.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
+                    height: 50,
+                    margin: EdgeInsets.all(2),
+                    child: ElevatedButton(
+                      child: Center(
+                        child: Text(
+                          '${exercisesList[index]}',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.grey,
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return ExercisePage(title: exercisesList[index]);
+                            },
+                          ),
+                        );
+                      },
+                    ),
+                  );
+                },
+              ),
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return ExercisePage(title: 'bänk');
-          }));
+          setState(() {});
         },
         tooltip: 'newExercise',
         child: Icon(Icons.add),

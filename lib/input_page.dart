@@ -39,7 +39,18 @@ class _InputPageState extends State<InputPage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
-            child: ReuseableCard(kActiveCardColor, TextField()),
+            child: ReuseableCard(
+                kActiveCardColor,
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextField(
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: 'Enter a search term'),
+                    ),
+                  ],
+                )),
           ),
           Expanded(
             child: ReuseableCard(
@@ -57,7 +68,7 @@ class _InputPageState extends State<InputPage> {
                     onPressed: () => _selectDate(context),
                     child: Text('Change date'),
                     style: ElevatedButton.styleFrom(
-                      primary: kButtomButtonColor,
+                      primary: Colors.grey,
                     ),
                   ),
                 ],
@@ -80,7 +91,6 @@ class _InputPageState extends State<InputPage> {
                     textBaseline: TextBaseline.alphabetic,
                     children: [
                       Text(height.toString(), style: kNumberTextStyle),
-                      Text('cm', style: kLabelTextStyle)
                     ],
                   ),
                   SliderTheme(
@@ -153,7 +163,7 @@ class _InputPageState extends State<InputPage> {
             ),
           ),
           ButtomButton(
-            title: 'CALCULATE',
+            title: 'SAVE',
             onTap: () {
               Navigator.pop(context);
             },
