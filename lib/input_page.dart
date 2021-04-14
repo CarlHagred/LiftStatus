@@ -39,6 +39,9 @@ class _InputPageState extends State<InputPage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
+            child: ReuseableCard(kActiveCardColor, TextField()),
+          ),
+          Expanded(
             child: ReuseableCard(
               kActiveCardColor,
               Column(
@@ -52,7 +55,10 @@ class _InputPageState extends State<InputPage> {
                       style: kNumberTextStyle),
                   ElevatedButton(
                     onPressed: () => _selectDate(context),
-                    child: Text('Select date'),
+                    child: Text('Change date'),
+                    style: ElevatedButton.styleFrom(
+                      primary: kButtomButtonColor,
+                    ),
                   ),
                 ],
               ),
