@@ -1,19 +1,8 @@
 import 'package:flutter/material.dart';
-
-class Exercise extends StatelessWidget {
-  Exercise({this.name});
-  String name;
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData.dark(),
-      home: ExercisePage(title: name),
-    );
-  }
-}
+import 'input_page.dart';
 
 class ExercisePage extends StatefulWidget {
-  ExercisePage({Key key, this.title}) : super(key: key);
+  ExercisePage({this.title});
 
   final String title;
 
@@ -34,13 +23,17 @@ class _ExercisePageState extends State<ExercisePage> {
           children: <Widget>[
             /*TODO Lägg till ternary operator med funktion som kollar om litsan av övningar är tom. är den det ska texten nedan visas och annars ska övningarna visas. */
             Text(
-              'Press the plus button to add exercises',
+              'Press the plus button to add a new set',
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return InputPage();
+          }));
+        },
         tooltip: 'newExercise',
         child: Icon(Icons.add),
       ),

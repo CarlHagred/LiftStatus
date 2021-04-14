@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:lift_status/home_screen.dart';
 
-void main() {
-  void main() => runApp(MyApp());
-}
+void main() => runApp(LiftStatus());
 
-class MyApp extends StatelessWidget {
+class LiftStatus extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData.dark(),
-      home: HomeScreen(),
+      home: HomeScreenPage(
+        title: 'Lift Status',
+      ),
     );
   }
 }
