@@ -13,7 +13,8 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  int height = 0;
+  String name = '';
+  int weight = 0;
   int repetitions = 3;
   DateTime selectedDate = DateTime.now();
 
@@ -24,9 +25,11 @@ class _InputPageState extends State<InputPage> {
         firstDate: DateTime(2015, 8),
         lastDate: DateTime(2101));
     if (picked != null && picked != selectedDate)
-      setState(() {
-        selectedDate = picked;
-      });
+      setState(
+        () {
+          selectedDate = picked;
+        },
+      );
   }
 
   @override
@@ -90,7 +93,7 @@ class _InputPageState extends State<InputPage> {
                     crossAxisAlignment: CrossAxisAlignment.baseline,
                     textBaseline: TextBaseline.alphabetic,
                     children: [
-                      Text(height.toString(), style: kNumberTextStyle),
+                      Text(weight.toString(), style: kNumberTextStyle),
                     ],
                   ),
                   SliderTheme(
@@ -103,13 +106,13 @@ class _InputPageState extends State<InputPage> {
                           RoundSliderThumbShape(enabledThumbRadius: 20),
                     ),
                     child: Slider(
-                      value: height.toDouble(),
+                      value: weight.toDouble(),
                       min: 0,
                       max: 400,
                       inactiveColor: Color(0xFF8D8E98),
                       onChanged: (double newValue) => {
                         setState(() {
-                          height = newValue.round();
+                          weight = newValue.round();
                         }),
                       },
                     ),
