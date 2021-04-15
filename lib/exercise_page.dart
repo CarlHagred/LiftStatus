@@ -12,6 +12,7 @@ class ExercisePage extends StatefulWidget {
 }
 
 class _ExercisePageState extends State<ExercisePage> {
+  String get title => widget.title;
   ScrollController controller = ScrollController();
   bool closeTopContainer = false;
   double topContainer = 0;
@@ -19,7 +20,7 @@ class _ExercisePageState extends State<ExercisePage> {
   List<Widget> itemsData = [];
 
   void getPostsData() {
-    List<dynamic> responseList = bench;
+    List<dynamic> responseList = lists[title];
     List<Widget> listItems = [];
     responseList.forEach((post) {
       listItems.add(Container(
@@ -145,10 +146,13 @@ class _ExercisePageState extends State<ExercisePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return InputPage();
+        onPressed: () async {
+          await Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return InputPage(
+              title: title,
+            );
           }));
+          getPostsData();
         },
         tooltip: 'newExercise',
         child: Icon(Icons.add),

@@ -1,6 +1,7 @@
 import 'package:lift_status/exercise_page.dart';
 import 'package:flutter/material.dart';
 import 'model/exercises.dart';
+import 'model/sets.dart';
 
 class HomeScreenPage extends StatefulWidget {
   HomeScreenPage({this.title});
@@ -33,7 +34,7 @@ class _HomeScreenState extends State<HomeScreenPage> {
                     child: ElevatedButton(
                       child: Center(
                         child: Text(
-                          '${exercisesList[index]}',
+                          '${lists.keys.elementAt(index)}',
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
@@ -48,7 +49,8 @@ class _HomeScreenState extends State<HomeScreenPage> {
                           context,
                           MaterialPageRoute(
                             builder: (context) {
-                              return ExercisePage(title: exercisesList[index]);
+                              return ExercisePage(
+                                  title: lists.keys.elementAt(index));
                             },
                           ),
                         );
@@ -63,7 +65,10 @@ class _HomeScreenState extends State<HomeScreenPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          setState(() {});
+          setState(() {
+            lists.addAll({});
+            exercisesList.add('');
+          });
         },
         tooltip: 'newExercise',
         child: Icon(Icons.add),

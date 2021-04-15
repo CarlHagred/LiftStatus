@@ -1,3 +1,8 @@
+var lists = {
+  "bench": bench,
+  "biceps": biceps,
+};
+
 var bench = [
   {
     "date": "2021-15-04",
@@ -23,88 +28,13 @@ var bench = [
     "weight": 100,
     "reps": 6,
   },
+];
+
+var biceps = [
   {
     "date": "2021-15-04",
     "name": "first set",
     "weight": 100,
     "reps": 6,
   },
-  {
-    "date": "2021-15-04",
-    "name": "first set",
-    "weight": 100,
-    "reps": 6,
-  },
-  {
-    "date": "2021-15-04",
-    "name": "first set",
-    "weight": 100,
-    "reps": 6,
-  },
-  {
-    "date": "2021-15-04",
-    "name": "first set",
-    "weight": 100,
-    "reps": 6,
-  },
-  {
-    "date": "2021-15-04",
-    "name": "first set",
-    "weight": 100,
-    "reps": 6,
-  },
-  {
-    "date": "2021-15-04",
-    "name": "first set",
-    "weight": 100,
-    "reps": 6,
-  },
-  {
-    "date": "2021-15-04",
-    "name": "first set",
-    "weight": 100,
-    "reps": 6,
-  },
-  {
-    "date": "2021-15-04",
-    "name": "first set",
-    "weight": 100,
-    "reps": 6,
-  },
-  {
-    "date": "2021-15-04",
-    "name": "first set",
-    "weight": 100,
-    "reps": 6,
-  },
-  {
-    "date": "2021-15-04",
-    "name": "first set",
-    "weight": 100,
-    "reps": 6,
-  },
-  {
-    "date": "2021-15-04",
-    "name": "first set",
-    "weight": 100,
-    "reps": 6,
-  },
-  {
-    "date": "2021-15-04",
-    "name": "first set",
-    "weight": 100,
-    "reps": 6,
-  },
-  {
-    "date": "2021-15-04",
-    "name": "first set",
-    "weight": 100,
-    "reps": 6,
-  },
-  {
-    "date": "2021-15-04",
-    "name": "first set",
-    "weight": 100,
-    "reps": 6,
-  }
 ];

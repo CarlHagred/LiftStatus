@@ -1,22 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:lift_status/model/sets.dart';
 import 'components/reuseable_card.dart';
 import 'constant.dart';
 import 'components/buttom_button.dart';
 import 'components/round_icon_button.dart';
+import 'model/sets.dart';
 
 const double buttomContainerHeight = 80;
 
 class InputPage extends StatefulWidget {
+  InputPage({this.title});
+
+  final String title;
   @override
   _InputPageState createState() => _InputPageState();
 }
 
 class _InputPageState extends State<InputPage> {
-  String name = '';
+  String get title => widget.title;
   int weight = 0;
   int repetitions = 3;
   DateTime selectedDate = DateTime.now();
+  final myController = TextEditingController();
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime picked = await showDatePicker(
@@ -48,6 +54,7 @@ class _InputPageState extends State<InputPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     TextField(
+                      controller: myController,
                       decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           hintText: 'Name the set'),
@@ -168,6 +175,17 @@ class _InputPageState extends State<InputPage> {
           ButtomButton(
             title: 'SAVE',
             onTap: () {
+              setState(() {
+                lists[title].add(
+                  {
+                    "date": selectedDate.toLocal().toString().split(' ')[0],
+                    "name": myController.text,
+                    "weight": weight,
+                    "reps": repetitions,
+                  },
+                );
+              });
+
               Navigator.pop(context);
             },
           )
