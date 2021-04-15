@@ -1,1 +1,1 @@
-const List<String> exercisesList = ['Bänk', 'Axelpress'];
+const List<String> exercisesList = ['bench', 'Axelpress'];
