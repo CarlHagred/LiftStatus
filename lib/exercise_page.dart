@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'input_page.dart';
+import 'new_set_page.dart';
 import 'model/sets.dart';
 
 class ExercisePage extends StatefulWidget {
@@ -27,7 +27,7 @@ class _ExercisePageState extends State<ExercisePage> {
           margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(20.0)),
-              color: Colors.grey,
+              color: Colors.grey[800],
               boxShadow: [
                 BoxShadow(color: Colors.black.withAlpha(100), blurRadius: 10.0),
               ]),
@@ -42,23 +42,27 @@ class _ExercisePageState extends State<ExercisePage> {
                     Text(
                       post["date"],
                       style: TextStyle(
-                          fontSize: 28,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black),
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
                     ),
                     Text(
                       post["name"],
-                      style: TextStyle(fontSize: 25, color: Colors.grey),
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     Text(
-                      "${post["reps"]}",
-                      style: TextStyle(
-                          fontSize: 17,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold),
+                      "Repetitions: ${post["reps"]}",
+                      style:
+                          TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                     )
                   ],
                 ),
@@ -66,10 +70,7 @@ class _ExercisePageState extends State<ExercisePage> {
                   height: double.infinity,
                   child: Text(
                     "${post["weight"]}Kg",
-                    style: TextStyle(
-                        fontSize: 25,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                   ),
                 )
               ],
@@ -99,50 +100,58 @@ class _ExercisePageState extends State<ExercisePage> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     final double categoryHeight = size.height * 0.30;
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        body: Container(
-          height: size.height,
-          child: Column(
-            children: <Widget>[
-              Container(
-                child: Text('Progress'),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Expanded(
-                child: ListView.builder(
-                  controller: controller,
-                  itemCount: itemsData.length,
-                  physics: BouncingScrollPhysics(),
-                  itemBuilder: (context, index) {
-                    double scale = 1.0;
-                    if (topContainer > 0.5) {
-                      scale = index + 0.5 - topContainer;
-                      if (scale < 0) {
-                        scale = 0;
-                      } else if (scale > 1) {
-                        scale = 1;
-                      }
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: Container(
+        height: size.height,
+        child: Column(
+          children: <Widget>[
+            Container(
+              height: 350,
+              child: Center(child: Text('Progress')),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Expanded(
+              child: ListView.builder(
+                controller: controller,
+                itemCount: itemsData.length,
+                physics: BouncingScrollPhysics(),
+                itemBuilder: (context, index) {
+                  double scale = 1.0;
+                  if (topContainer > 0.5) {
+                    scale = index + 0.5 - topContainer;
+                    if (scale < 0) {
+                      scale = 0;
+                    } else if (scale > 1) {
+                      scale = 1;
                     }
-                    return Opacity(
-                      opacity: scale,
-                      child: Transform(
-                        transform: Matrix4.identity()..scale(scale, scale),
-                        alignment: Alignment.bottomCenter,
-                        child: Align(child: itemsData[index]),
-                      ),
-                    );
-                  },
-                ),
+                  }
+                  return Opacity(
+                    opacity: scale,
+                    child: Transform(
+                      transform: Matrix4.identity()..scale(scale, scale),
+                      alignment: Alignment.bottomCenter,
+                      child: Align(child: itemsData[index]),
+                    ),
+                  );
+                },
               ),
-            ],
-          ),
+            ),
+          ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return InputPage();
+          }));
+        },
+        tooltip: 'newExercise',
+        child: Icon(Icons.add),
       ),
     );
   }

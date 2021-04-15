@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreenPage> {
                         ),
                       ),
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.grey,
+                        primary: Colors.grey[800],
                       ),
                       onPressed: () {
                         Navigator.push(

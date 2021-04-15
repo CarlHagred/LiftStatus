@@ -50,7 +50,7 @@ class _InputPageState extends State<InputPage> {
                     TextField(
                       decoration: InputDecoration(
                           border: OutlineInputBorder(),
-                          hintText: 'Enter a search term'),
+                          hintText: 'Name the set'),
                     ),
                   ],
                 )),
@@ -71,7 +71,7 @@ class _InputPageState extends State<InputPage> {
                     onPressed: () => _selectDate(context),
                     child: Text('Change date'),
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.grey,
+                      primary: Colors.grey[800],
                     ),
                   ),
                 ],
