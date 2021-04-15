@@ -24,10 +24,10 @@ class _ExercisePageState extends State<ExercisePage> {
     responseList.forEach((post) {
       listItems.add(Container(
           height: 150,
-          margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(20.0)),
-              color: Colors.white,
+              color: Colors.grey,
               boxShadow: [
                 BoxShadow(color: Colors.black.withAlpha(100), blurRadius: 10.0),
               ]),
@@ -62,12 +62,15 @@ class _ExercisePageState extends State<ExercisePage> {
                     )
                   ],
                 ),
-                Text(
-                  "${post["weight"]}Kg",
-                  style: TextStyle(
-                      fontSize: 25,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold),
+                Container(
+                  height: double.infinity,
+                  child: Text(
+                    "${post["weight"]}Kg",
+                    style: TextStyle(
+                        fontSize: 25,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
                 )
               ],
             ),
@@ -108,7 +111,7 @@ class _ExercisePageState extends State<ExercisePage> {
               Container(
                 child: Text('Progress'),
               ),
-              const SizedBox(
+              SizedBox(
                 height: 10,
               ),
               Expanded(
@@ -131,10 +134,7 @@ class _ExercisePageState extends State<ExercisePage> {
                       child: Transform(
                         transform: Matrix4.identity()..scale(scale, scale),
                         alignment: Alignment.bottomCenter,
-                        child: Align(
-                            heightFactor: 0.7,
-                            alignment: Alignment.topCenter,
-                            child: itemsData[index]),
+                        child: Align(child: itemsData[index]),
                       ),
                     );
                   },
@@ -147,54 +147,3 @@ class _ExercisePageState extends State<ExercisePage> {
     );
   }
 }
-
-/*
-return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Column(
-        children: [
-          
-          Flexible(
-            child: FractionallySizedBox(
-              heightFactor: 0.6,
-              widthFactor: 1,
-              child: ListView.builder(
-                itemCount: 18,
-                itemBuilder: (context, index) {
-                  return Card(
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        children: [
-                          Text(
-                            'Titel',
-                            style: TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text('Content'),
-                        ],
-                      ),
-                    ),
-                  );
-                },
-              ),
-            ),
-          ),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return InputPage();
-          }));
-        },
-        tooltip: 'newExercise',
-        child: Icon(Icons.add),
-      ),
-    );
-  }
-  */

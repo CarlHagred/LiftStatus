@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreenPage> {
           children: <Widget>[
             Expanded(
               child: ListView.builder(
-                padding: const EdgeInsets.all(15),
+                padding: EdgeInsets.all(15),
                 itemCount: exercisesList.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
