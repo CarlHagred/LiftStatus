@@ -13,6 +13,7 @@ class HomeScreenPage extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreenPage> {
+  final myController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,10 +66,30 @@ class _HomeScreenState extends State<HomeScreenPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          setState(() {
-            lists.addAll({});
-            exercisesList.add('');
-          });
+          showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                title: Text('TextField in Dialog'),
+                content: TextField(
+                  onChanged: (value) {},
+                  controller: myController,
+                  decoration: InputDecoration(hintText: "Text Field in Dialog"),
+                ),
+                actions: [
+                  TextButton(
+                    child: Text('Add'),
+                    onPressed: () {
+                      setState(() {
+                        lists[myController.text.toString()] = [];
+                        Navigator.pop(context);
+                      });
+                    },
+                  ),
+                ],
+              );
+            },
+          );
         },
         tooltip: 'newExercise',
         child: Icon(Icons.add),
