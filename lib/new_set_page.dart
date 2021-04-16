@@ -115,7 +115,7 @@ class _InputPageState extends State<InputPage> {
                     child: Slider(
                       value: weight.toDouble(),
                       min: 0,
-                      max: 400,
+                      max: 250,
                       inactiveColor: Color(0xFF8D8E98),
                       onChanged: (double newValue) => {
                         setState(() {

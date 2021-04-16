@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'new_set_page.dart';
 import 'model/sets.dart';
+import 'package:fl_chart/fl_chart.dart';
 
 class ExercisePage extends StatefulWidget {
   ExercisePage({this.title});
@@ -82,16 +83,36 @@ class _ExercisePageState extends State<ExercisePage> {
     });
   }
 
+  List<FlSpot> chartData = [];
+  /*List<FlSpot> chartDataTwo = [
+    FlSpot(1, 0),
+    FlSpot(20, 1),
+    FlSpot(100, 2),
+    FlSpot(200, 3),
+  ];*/
+  void getChartData() {
+    List<FlSpot> responseChartList = [];
+    double j = 0;
+    for (var i = lists[title].length - 1; i > 0; i) {
+      var curentIndex = lists[title][i];
+      int weight = curentIndex["weight"];
+      responseChartList.add(FlSpot(j, weight.toDouble()));
+    }
+    setState(() {
+      chartData = responseChartList;
+    });
+  }
+
   @override
   void initState() {
     super.initState();
     getPostsData();
+    getChartData();
   }
 
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    final double categoryHeight = size.height * 0.30;
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -102,7 +123,28 @@ class _ExercisePageState extends State<ExercisePage> {
           children: <Widget>[
             Container(
               height: 350,
-              child: Center(child: Text('Progress')),
+              child: Padding(
+                padding: EdgeInsets.all(15.0),
+                child: Padding(
+                  padding: EdgeInsets.only(right: 45.0),
+                  child: LineChart(
+                    LineChartData(
+                      minX: 0,
+                      maxX: lists[title].length.toDouble(),
+                      minY: 0,
+                      maxY: 250,
+                      lineBarsData: [
+                        LineChartBarData(
+                          spots: chartData,
+                        ),
+                      ],
+                    ),
+                    swapAnimationDuration:
+                        Duration(milliseconds: 150), // Optional
+                    swapAnimationCurve: Curves.linear, // Optional
+                  ),
+                ),
+              ),
             ),
             SizedBox(
               height: 10,
@@ -128,6 +170,7 @@ class _ExercisePageState extends State<ExercisePage> {
             ),
           );
           getPostsData();
+          getChartData();
         },
         tooltip: 'newExercise',
         child: Icon(Icons.add),
