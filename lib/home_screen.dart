@@ -1,6 +1,5 @@
 import 'package:lift_status/exercise_page.dart';
 import 'package:flutter/material.dart';
-import 'model/exercises.dart';
 import 'model/sets.dart';
 
 class HomeScreenPage extends StatefulWidget {

@@ -175,17 +175,19 @@ class _InputPageState extends State<InputPage> {
           ButtomButton(
             title: 'SAVE',
             onTap: () {
-              setState(() {
-                lists[title].add(
-                  {
-                    "date": selectedDate.toLocal().toString().split(' ')[0],
-                    "name": myController.text,
-                    "weight": weight,
-                    "reps": repetitions,
-                  },
-                );
-              });
-
+              setState(
+                () {
+                  lists[title].insert(
+                    0,
+                    {
+                      "date": selectedDate.toLocal().toString().split(' ')[0],
+                      "name": myController.text,
+                      "weight": weight,
+                      "reps": repetitions,
+                    },
+                  );
+                },
+              );
               Navigator.pop(context);
             },
           )
