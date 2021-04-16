@@ -57,7 +57,6 @@ class _HomeScreenState extends State<HomeScreenPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     getPostsData();
   }
 
@@ -115,36 +114,3 @@ class _HomeScreenState extends State<HomeScreenPage> {
     );
   }
 }
-/*
-padding: EdgeInsets.all(15),
-                itemCount: exercisesList.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    height: 50,
-                    margin: EdgeInsets.all(2),
-                    child: ElevatedButton(
-                      child: Center(
-                        child: Text(
-                          '${lists.keys.elementAt(index)}',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.grey[800],
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return ExercisePage(
-                                  title: lists.keys.elementAt(index));
-                            },
-                          ),
-                        );
-                      },
-                    ),
-                  );*/
