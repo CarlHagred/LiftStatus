@@ -13,7 +13,6 @@ class ExercisePage extends StatefulWidget {
 
 class _ExercisePageState extends State<ExercisePage> {
   String get title => widget.title;
-  ScrollController controller = ScrollController();
   bool closeTopContainer = false;
   double topContainer = 0;
 
@@ -87,14 +86,6 @@ class _ExercisePageState extends State<ExercisePage> {
   void initState() {
     super.initState();
     getPostsData();
-    controller.addListener(() {
-      double value = controller.offset / 119;
-
-      setState(() {
-        topContainer = value;
-        closeTopContainer = controller.offset > 50;
-      });
-    });
   }
 
   @override
@@ -117,29 +108,8 @@ class _ExercisePageState extends State<ExercisePage> {
               height: 10,
             ),
             Expanded(
-              child: ListView.builder(
-                controller: controller,
-                itemCount: itemsData.length,
-                physics: BouncingScrollPhysics(),
-                itemBuilder: (context, index) {
-                  double scale = 1.0;
-                  if (topContainer > 0.5) {
-                    scale = index + 0.5 - topContainer;
-                    if (scale < 0) {
-                      scale = 0;
-                    } else if (scale > 1) {
-                      scale = 1;
-                    }
-                  }
-                  return Opacity(
-                    opacity: scale,
-                    child: Transform(
-                      transform: Matrix4.identity()..scale(scale, scale),
-                      alignment: Alignment.bottomCenter,
-                      child: Align(child: itemsData[index]),
-                    ),
-                  );
-                },
+              child: ListView(
+                children: itemsData,
               ),
             ),
           ],
@@ -147,11 +117,16 @@ class _ExercisePageState extends State<ExercisePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          await Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return InputPage(
-              title: title,
-            );
-          }));
+          await Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return InputPage(
+                  title: title,
+                );
+              },
+            ),
+          );
           getPostsData();
         },
         tooltip: 'newExercise',
