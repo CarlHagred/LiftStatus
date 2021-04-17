@@ -135,42 +135,39 @@ class _ExercisePageState extends State<ExercisePage> {
               height: 350,
               child: Padding(
                 padding: EdgeInsets.all(15.0),
-                child: Padding(
-                  padding: EdgeInsets.only(right: 45.0),
-                  child: LineChart(
-                    LineChartData(
-                      gridData: FlGridData(show: false),
-                      titlesData: FlTitlesData(
-                        bottomTitles: SideTitles(
-                          showTitles: false,
-                        ),
-                        leftTitles: SideTitles(
-                          showTitles: false,
-                        ),
+                child: LineChart(
+                  LineChartData(
+                    gridData: FlGridData(show: false),
+                    titlesData: FlTitlesData(
+                      bottomTitles: SideTitles(
+                        showTitles: false,
                       ),
-                      backgroundColor: kActiveCardColor,
-                      minX: 0,
-                      maxX: lists[title].length.toDouble() - 1,
-                      minY: 0,
-                      maxY: 250,
-                      lineBarsData: [
-                        LineChartBarData(
-                            spots: chartData,
-                            isCurved: true,
-                            barWidth: 5,
-                            colors: gradientColor,
-                            belowBarData: BarAreaData(
-                              show: true,
-                              colors: gradientColor
-                                  .map((color) => color.withOpacity(0.3))
-                                  .toList(),
-                            )),
-                      ],
+                      leftTitles: SideTitles(
+                        showTitles: false,
+                      ),
                     ),
-                    swapAnimationDuration:
-                        Duration(milliseconds: 150), // Optional
-                    swapAnimationCurve: Curves.linear, // Optional
+                    backgroundColor: kActiveCardColor,
+                    minX: 0,
+                    maxX: lists[title].length.toDouble() - 1,
+                    minY: 0,
+                    maxY: 250,
+                    lineBarsData: [
+                      LineChartBarData(
+                          spots: chartData,
+                          isCurved: true,
+                          barWidth: 5,
+                          colors: gradientColor,
+                          belowBarData: BarAreaData(
+                            show: true,
+                            colors: gradientColor
+                                .map((color) => color.withOpacity(0.3))
+                                .toList(),
+                          )),
+                    ],
                   ),
+                  swapAnimationDuration:
+                      Duration(milliseconds: 150), // Optional
+                  swapAnimationCurve: Curves.linear, // Optional
                 ),
               ),
             ),
