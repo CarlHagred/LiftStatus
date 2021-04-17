@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'new_set_page.dart';
 import 'model/sets.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'constant.dart';
 
 class ExercisePage extends StatefulWidget {
   ExercisePage({this.title});
@@ -15,6 +16,9 @@ class ExercisePage extends StatefulWidget {
 class _ExercisePageState extends State<ExercisePage> {
   final List<Color> gradientColor = [
     Color(0xFF64FFDA),
+    Colors.cyan,
+    Colors.lightBlue,
+    Colors.blue,
   ];
   String get title => widget.title;
   bool closeTopContainer = false;
@@ -33,7 +37,10 @@ class _ExercisePageState extends State<ExercisePage> {
               borderRadius: BorderRadius.all(Radius.circular(20.0)),
               color: Colors.grey[800],
               boxShadow: [
-                BoxShadow(color: Colors.black.withAlpha(100), blurRadius: 10.0),
+                BoxShadow(
+                  color: Colors.black.withAlpha(100),
+                  blurRadius: 10.0,
+                ),
               ]),
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
@@ -132,17 +139,32 @@ class _ExercisePageState extends State<ExercisePage> {
                   padding: EdgeInsets.only(right: 45.0),
                   child: LineChart(
                     LineChartData(
+                      gridData: FlGridData(show: false),
+                      titlesData: FlTitlesData(
+                        bottomTitles: SideTitles(
+                          showTitles: false,
+                        ),
+                        leftTitles: SideTitles(
+                          showTitles: false,
+                        ),
+                      ),
+                      backgroundColor: kActiveCardColor,
                       minX: 0,
                       maxX: lists[title].length.toDouble() - 1,
                       minY: 0,
                       maxY: 250,
                       lineBarsData: [
                         LineChartBarData(
-                          spots: chartData,
-                          isCurved: true,
-                          barWidth: 5,
-                          colors: gradientColor,
-                        ),
+                            spots: chartData,
+                            isCurved: true,
+                            barWidth: 5,
+                            colors: gradientColor,
+                            belowBarData: BarAreaData(
+                              show: true,
+                              colors: gradientColor
+                                  .map((color) => color.withOpacity(0.3))
+                                  .toList(),
+                            )),
                       ],
                     ),
                     swapAnimationDuration:
