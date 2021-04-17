@@ -13,6 +13,9 @@ class ExercisePage extends StatefulWidget {
 }
 
 class _ExercisePageState extends State<ExercisePage> {
+  final List<Color> gradientColor = [
+    Color(0xFF64FFDA),
+  ];
   String get title => widget.title;
   bool closeTopContainer = false;
   double topContainer = 0;
@@ -33,7 +36,7 @@ class _ExercisePageState extends State<ExercisePage> {
                 BoxShadow(color: Colors.black.withAlpha(100), blurRadius: 10.0),
               ]),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
+            padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
@@ -84,19 +87,19 @@ class _ExercisePageState extends State<ExercisePage> {
   }
 
   List<FlSpot> chartData = [];
-  /*List<FlSpot> chartDataTwo = [
-    FlSpot(1, 0),
-    FlSpot(20, 1),
-    FlSpot(100, 2),
-    FlSpot(200, 3),
-  ];*/
   void getChartData() {
     List<FlSpot> responseChartList = [];
     double j = 0;
-    for (var i = lists[title].length - 1; i > 0; i) {
+    for (var i = lists[title].length - 1; i >= 0; i--) {
       var curentIndex = lists[title][i];
       int weight = curentIndex["weight"];
-      responseChartList.add(FlSpot(j, weight.toDouble()));
+      responseChartList.add(
+        FlSpot(
+          j,
+          weight.toDouble(),
+        ),
+      );
+      j++;
     }
     setState(() {
       chartData = responseChartList;
@@ -130,12 +133,15 @@ class _ExercisePageState extends State<ExercisePage> {
                   child: LineChart(
                     LineChartData(
                       minX: 0,
-                      maxX: lists[title].length.toDouble(),
+                      maxX: lists[title].length.toDouble() - 1,
                       minY: 0,
                       maxY: 250,
                       lineBarsData: [
                         LineChartBarData(
                           spots: chartData,
+                          isCurved: true,
+                          barWidth: 5,
+                          colors: gradientColor,
                         ),
                       ],
                     ),

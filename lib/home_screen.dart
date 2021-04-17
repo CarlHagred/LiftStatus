@@ -36,6 +36,7 @@ class _HomeScreenState extends State<HomeScreenPage> {
               primary: Colors.grey[800],
             ),
             onPressed: () {
+              print('hello');
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -56,6 +57,7 @@ class _HomeScreenState extends State<HomeScreenPage> {
 
   @override
   void initState() {
+    super.initState();
     getPostsData();
   }
 
