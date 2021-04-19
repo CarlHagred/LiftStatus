@@ -47,21 +47,18 @@ class _InputPageState extends State<InputPage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Expanded(
-            child: ReuseableCard(
-                kActiveCardColor,
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    TextField(
-                      controller: myController,
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: 'Name the set'),
-                    ),
-                  ],
-                )),
-          ),
+          ReuseableCard(
+              kActiveCardColor,
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextField(
+                    controller: myController,
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(), hintText: 'Name the set'),
+                  ),
+                ],
+              )),
           Expanded(
             child: ReuseableCard(
               kActiveCardColor,

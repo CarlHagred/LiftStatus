@@ -3,6 +3,8 @@ import 'new_set_page.dart';
 import 'model/sets.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'constant.dart';
+import 'components/chart.dart';
+import 'components/reuseable_card.dart';
 
 class ExercisePage extends StatefulWidget {
   ExercisePage({this.title});
@@ -26,71 +28,46 @@ class _ExercisePageState extends State<ExercisePage> {
 
   List<Widget> itemsData = [];
 
+  var test = {"hello": "there"};
+
   void getPostsData() {
-    List<dynamic> responseList = lists[title];
+    List<dynamic> responseList = exercises[title]["data"];
     List<Widget> listItems = [];
-    responseList.forEach((post) {
-      listItems.add(Container(
-          height: 150,
-          margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(20.0)),
-              color: Colors.grey[800],
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withAlpha(100),
-                  blurRadius: 10.0,
-                ),
-              ]),
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+    responseList.forEach(
+      (post) {
+        listItems.add(
+          ReuseableCard(
+              kActiveCardColor,
+              Container(
+                height: 120,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     Text(
-                      post["date"],
+                      post.keys.first,
                       style: TextStyle(
-                        fontSize: 28,
+                        fontSize: 40,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(
-                      height: 20,
-                    ),
                     Text(
-                      post["name"],
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      "Repetitions: ${post["reps"]}",
+                      "Sets: ${post[post.keys.first].length}",
                       style:
-                          TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                    )
+                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                    ),
                   ],
                 ),
-                Container(
-                  height: double.infinity,
-                  child: Text(
-                    "${post["weight"]}Kg",
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-                  ),
-                )
-              ],
-            ),
-          )));
-    });
-    setState(() {
-      itemsData = listItems;
-    });
+              ), () {
+            //go to teh set list for that ddate where you can see more info about the sets
+          }),
+        );
+      },
+    );
+    setState(
+      () {
+        itemsData = listItems;
+      },
+    );
   }
 
   List<FlSpot> chartData = [];
@@ -132,47 +109,14 @@ class _ExercisePageState extends State<ExercisePage> {
         child: Column(
           children: <Widget>[
             Container(
-              height: 350,
+              height: 300,
               child: Padding(
                 padding: EdgeInsets.all(15.0),
-                child: LineChart(
-                  LineChartData(
-                    gridData: FlGridData(show: false),
-                    titlesData: FlTitlesData(
-                      bottomTitles: SideTitles(
-                        showTitles: false,
-                      ),
-                      leftTitles: SideTitles(
-                        showTitles: false,
-                      ),
-                    ),
-                    backgroundColor: kActiveCardColor,
-                    minX: 0,
-                    maxX: lists[title].length.toDouble() - 1,
-                    minY: 0,
-                    maxY: 250,
-                    lineBarsData: [
-                      LineChartBarData(
-                          spots: chartData,
-                          isCurved: true,
-                          barWidth: 5,
-                          colors: gradientColor,
-                          belowBarData: BarAreaData(
-                            show: true,
-                            colors: gradientColor
-                                .map((color) => color.withOpacity(0.3))
-                                .toList(),
-                          )),
-                    ],
-                  ),
-                  swapAnimationDuration:
-                      Duration(milliseconds: 150), // Optional
-                  swapAnimationCurve: Curves.linear, // Optional
-                ),
+                child: Chart(
+                    title: title,
+                    chartData: chartData,
+                    gradientColor: gradientColor),
               ),
-            ),
-            SizedBox(
-              height: 10,
             ),
             Expanded(
               child: ListView(

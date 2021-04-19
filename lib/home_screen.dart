@@ -36,7 +36,6 @@ class _HomeScreenState extends State<HomeScreenPage> {
               primary: Colors.grey[800],
             ),
             onPressed: () {
-              print('hello');
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -97,10 +96,12 @@ class _HomeScreenState extends State<HomeScreenPage> {
                   TextButton(
                     child: Text('Add'),
                     onPressed: () {
-                      setState(() {
-                        lists['${myController.text}'] = [];
-                      });
-                      getPostsData();
+                      if (myController.text.isNotEmpty) {
+                        setState(() {
+                          lists['${myController.text}'] = [];
+                        });
+                        getPostsData();
+                      }
                       Navigator.pop(context);
                     },
                   ),
@@ -115,3 +116,16 @@ class _HomeScreenState extends State<HomeScreenPage> {
     );
   }
 }
+
+/*
+() {
+              print('hello');
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return ExercisePage(title: lists.keys.elementAt(i));
+                  },
+                ),
+              );
+            },*/
