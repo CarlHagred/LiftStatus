@@ -17,7 +17,7 @@ class _HomeScreenState extends State<HomeScreenPage> {
   List<Widget> itemsData = [];
   void getPostsData() {
     List<Widget> responseList = [];
-    for (var i = 0; i < lists.length; i++) {
+    for (var i = 0; i < exercises.length; i++) {
       responseList.add(
         Container(
           height: 50,
@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreenPage> {
           child: ElevatedButton(
             child: Center(
               child: Text(
-                '${lists.keys.elementAt(i)}',
+                '${exercises.keys.elementAt(i)}',
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -40,7 +40,7 @@ class _HomeScreenState extends State<HomeScreenPage> {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return ExercisePage(title: lists.keys.elementAt(i));
+                    return ExercisePage(title: exercises.keys.elementAt(i));
                   },
                 ),
               );
@@ -98,7 +98,10 @@ class _HomeScreenState extends State<HomeScreenPage> {
                     onPressed: () {
                       if (myController.text.isNotEmpty) {
                         setState(() {
-                          lists['${myController.text}'] = [];
+                          exercises['${myController.text}'] = {
+                            "pb": 0,
+                            "data": []
+                          };
                         });
                         getPostsData();
                       }

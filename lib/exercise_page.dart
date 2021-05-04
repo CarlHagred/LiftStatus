@@ -58,7 +58,7 @@ class _ExercisePageState extends State<ExercisePage> {
                   ],
                 ),
               ), () {
-            //go to teh set list for that ddate where you can see more info about the sets
+            //go to the set list for that date where you can see more info about the sets
           }),
         );
       },
@@ -72,9 +72,19 @@ class _ExercisePageState extends State<ExercisePage> {
 
   List<FlSpot> chartData = [];
   void getChartData() {
+    List<dynamic> responseList = exercises[title]["data"];
     List<FlSpot> responseChartList = [];
     double j = 0;
-    for (var i = lists[title].length - 1; i >= 0; i--) {
+
+    responseList.forEach(
+      (post) {
+        for (var i = 0; i < post[post.keys.first].length; i++) {
+          print(post[post.keys.first][i]["weight"]);
+        }
+      },
+    );
+
+    /*for (var i = responseList.length - 1; i >= 0; i--) {
       var curentIndex = lists[title][i];
       int weight = curentIndex["weight"];
       responseChartList.add(
@@ -84,7 +94,7 @@ class _ExercisePageState extends State<ExercisePage> {
         ),
       );
       j++;
-    }
+    }*/
     setState(() {
       chartData = responseChartList;
     });
