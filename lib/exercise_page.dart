@@ -79,22 +79,17 @@ class _ExercisePageState extends State<ExercisePage> {
     responseList.forEach(
       (post) {
         for (var i = 0; i < post[post.keys.first].length; i++) {
-          print(post[post.keys.first][i]["weight"]);
+          int weight = post[post.keys.first][i]["weight"];
+          responseChartList.add(
+            FlSpot(
+              j,
+              weight.toDouble(),
+            ),
+          );
+          j++;
         }
       },
     );
-
-    /*for (var i = responseList.length - 1; i >= 0; i--) {
-      var curentIndex = lists[title][i];
-      int weight = curentIndex["weight"];
-      responseChartList.add(
-        FlSpot(
-          j,
-          weight.toDouble(),
-        ),
-      );
-      j++;
-    }*/
     setState(() {
       chartData = responseChartList;
     });
