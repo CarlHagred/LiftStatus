@@ -183,6 +183,42 @@ class _InputPageState extends State<InputPage> {
                       "reps": repetitions,
                     },
                   );
+                  var inserted = false;
+                  var date = selectedDate.toLocal().toString().split(' ')[0];
+
+                  List<dynamic> responseList = exercises[title]["data"];
+                  responseList.forEach(
+                    (post) {
+                      for (var i = 0; i < post[post.keys.first].length; i++) {
+                        if (post[post.keys.first][i] ==
+                            selectedDate.toLocal().toString().split(' ')[0]) {
+                          inserted = true;
+                          post[post.keys.first][i].insert(
+                            {
+                              "name": myController.text,
+                              "weight": weight,
+                              "reps": repetitions,
+                            },
+                          );
+                          break;
+                        }
+                      }
+                    },
+                  );
+                  if (!inserted) {
+                    List post = exercises[title]["data"];
+                    post.add(
+                      {
+                        selectedDate.toLocal().toString().split(' ')[0]: [
+                          {
+                            "name": myController.text,
+                            "weight": weight,
+                            "reps": repetitions,
+                          },
+                        ],
+                      },
+                    );
+                  }
                 },
               );
               Navigator.pop(context);
