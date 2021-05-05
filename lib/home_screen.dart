@@ -119,16 +119,3 @@ class _HomeScreenState extends State<HomeScreenPage> {
     );
   }
 }
-
-/*
-() {
-              print('hello');
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return ExercisePage(title: lists.keys.elementAt(i));
-                  },
-                ),
-              );
-            },*/

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lift_status/set_page.dart';
 import 'new_set_page.dart';
 import 'model/sets.dart';
 import 'package:fl_chart/fl_chart.dart';
@@ -58,6 +59,18 @@ class _ExercisePageState extends State<ExercisePage> {
                   ],
                 ),
               ), () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  print(post.keys.first.toString());
+
+                  return SetPage(
+                    title: post.keys.first,
+                  );
+                },
+              ),
+            );
             //go to the set list for that date where you can see more info about the sets
           }),
         );

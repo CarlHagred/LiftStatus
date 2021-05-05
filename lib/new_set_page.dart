@@ -174,15 +174,6 @@ class _InputPageState extends State<InputPage> {
             onTap: () {
               setState(
                 () {
-                  lists[title].insert(
-                    0,
-                    {
-                      "date": selectedDate.toLocal().toString().split(' ')[0],
-                      "name": myController.text,
-                      "weight": weight,
-                      "reps": repetitions,
-                    },
-                  );
                   var inserted = false;
                   var date = selectedDate.toLocal().toString().split(' ')[0];
 
