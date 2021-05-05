@@ -192,9 +192,10 @@ class _InputPageState extends State<InputPage> {
                       for (var i = 0; i < post[post.keys.first].length; i++) {
                         if (post.keys.toString() ==
                             '(${selectedDate.toLocal().toString().split(' ')[0]})') {
-                          print(post);
+                          print('hej' + post.toString());
                           inserted = true;
-                          post.insert(
+                          post[selectedDate.toLocal().toString().split(' ')[0]]
+                              .add(
                             {
                               "name": myController.text,
                               "weight": weight,
@@ -208,6 +209,7 @@ class _InputPageState extends State<InputPage> {
                   );
                   if (!inserted) {
                     List post = exercises[title]["data"];
+                    print('hej' + post.toString());
                     post.add(
                       {
                         selectedDate.toLocal().toString().split(' ')[0]: [
@@ -222,6 +224,7 @@ class _InputPageState extends State<InputPage> {
                   }
                 },
               );
+
               Navigator.pop(context);
             },
           )
