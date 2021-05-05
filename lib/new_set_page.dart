@@ -190,10 +190,11 @@ class _InputPageState extends State<InputPage> {
                   responseList.forEach(
                     (post) {
                       for (var i = 0; i < post[post.keys.first].length; i++) {
-                        if (post[post.keys.first][i] ==
-                            selectedDate.toLocal().toString().split(' ')[0]) {
+                        if (post.keys.toString() ==
+                            '(${selectedDate.toLocal().toString().split(' ')[0]})') {
+                          print(post);
                           inserted = true;
-                          post[post.keys.first][i].insert(
+                          post.insert(
                             {
                               "name": myController.text,
                               "weight": weight,
