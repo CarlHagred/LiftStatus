@@ -28,12 +28,24 @@ class _ExercisePageState extends State<ExercisePage> {
   double topContainer = 0;
 
   List<Widget> itemsData = [];
+  List<FlSpot> chartData = [];
 
   void getPostsData() {
     Map responseList = exercises[title]["data"];
+    List<FlSpot> responseChartList = [];
     List<Widget> listItems = [];
+    double j = 0;
     responseList.forEach(
       (key, value) {
+        for (int i = 0; i < value.length; i++) {
+          responseChartList.add(
+            FlSpot(
+              j,
+              value[i]["weight"].toDouble(),
+            ),
+          );
+          j++;
+        }
         listItems.add(
           ReuseableCard(
             kActiveCardColor,
@@ -73,6 +85,7 @@ class _ExercisePageState extends State<ExercisePage> {
         );
         setState(
           () {
+            chartData = responseChartList;
             itemsData = listItems;
           },
         );
@@ -80,36 +93,10 @@ class _ExercisePageState extends State<ExercisePage> {
     );
   }
 
-  List<FlSpot> chartData = [];
-  void getChartData() {
-    /*List<dynamic> responseList = exercises[title]["data"];
-    List<FlSpot> responseChartList = [];
-    double j = 0;
-
-    responseList.forEach(
-      (post) {
-        for (var i = 0; i < post[post.keys.first].length; i++) {
-          int weight = post[post.keys.first][i]["weight"];
-          responseChartList.add(
-            FlSpot(
-              j,
-              weight.toDouble(),
-            ),
-          );
-          j++;
-        }
-      },
-    );
-    setState(() {
-      chartData = responseChartList;
-    });*/
-  }
-
   @override
   void initState() {
     super.initState();
     getPostsData();
-    getChartData();
   }
 
   @override
@@ -155,7 +142,6 @@ class _ExercisePageState extends State<ExercisePage> {
             ),
           );
           getPostsData();
-          getChartData();
         },
         tooltip: 'newExercise',
         child: Icon(Icons.add),
