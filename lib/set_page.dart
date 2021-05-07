@@ -20,54 +20,56 @@ class _SetPageState extends State<SetPage> {
   List<Widget> itemsData = [];
 
   void getPostsData() {
-    List responseList = exercises[exercise]["data"];
-    Map convertedList = responseList[0];
-    print(convertedList);
+    Map responseList = exercises[exercise]["data"];
+    List covertedList = responseList[title];
+    print(covertedList);
     List<Widget> listItems = [];
-    int i = 0;
-    /*responseList.forEach(
-      (post) {
-        print(post[title]);
-        String name = post[title][i]["name"];
-        int weight = post[title][i]["weight"];
-        int reps = post[title][i]["reps"];
+    covertedList.forEach(
+      (element) {
+        String name = element["name"];
+        int weight = element["weight"];
+        int reps = element["reps"];
         listItems.add(
           ReuseableCard(
             kActiveCardColor,
             Container(
               height: 120,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
                   Text(
                     "$name: ",
                     style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                   ),
-                  Text(
-                    "${weight}kg ",
-                    style: TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    "reps: $reps",
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Text(
+                        "${weight}kg ",
+                        style: TextStyle(
+                          fontSize: 40,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        "Reps: $reps",
+                        style: TextStyle(
+                            fontSize: 40, fontWeight: FontWeight.bold),
+                      ),
+                    ],
                   ),
                 ],
               ),
             ),
           ),
         );
-        //print(name);
-        i++;
       },
     );
     setState(
       () {
         itemsData = listItems;
       },
-    );*/
+    );
   }
 
   @override
@@ -78,13 +80,12 @@ class _SetPageState extends State<SetPage> {
 
   @override
   Widget build(BuildContext context) {
-    //final Size size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Text(
-          'hello'), /*Container(
+      body: Container(
         height: size.height,
         child: Column(
           children: <Widget>[
@@ -95,7 +96,7 @@ class _SetPageState extends State<SetPage> {
             ),
           ],
         ),
-      ),*/
+      ),
     );
   }
 }
