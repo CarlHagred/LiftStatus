@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'model/sets.dart';
-import 'package:fl_chart/fl_chart.dart';
 import 'constant.dart';
-import 'components/chart.dart';
 import 'components/reuseable_card.dart';
 
 class SetPage extends StatefulWidget {
-  SetPage({this.title});
+  SetPage({this.title, this.exercise});
 
   final String title;
+  final String exercise;
 
   @override
   _SetPageState createState() => _SetPageState();
@@ -16,18 +15,19 @@ class SetPage extends StatefulWidget {
 
 class _SetPageState extends State<SetPage> {
   String get title => widget.title;
-  bool closeTopContainer = false;
-  double topContainer = 0;
+  String get exercise => widget.exercise;
 
   List<Widget> itemsData = [];
 
-  var test = {"hello": "there"};
-
   void getPostsData() {
-    List<dynamic> responseList = exercises[title]["data"];
+    List<dynamic> responseList = exercises[exercise]["data"];
     List<Widget> listItems = [];
+    int i = 0;
     responseList.forEach(
       (post) {
+        String name = post[title][i]["name"];
+        int weight = post[title][i]["weight"];
+        int reps = post[title][i]["reps"];
         listItems.add(
           ReuseableCard(
             kActiveCardColor,
@@ -37,14 +37,18 @@ class _SetPageState extends State<SetPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Text(
-                    post.keys.first,
+                    "$name: ",
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    "${weight}kg ",
                     style: TextStyle(
                       fontSize: 40,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
-                    "Sets: ${post[post.keys.first].length}",
+                    "reps: $reps",
                     style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                   ),
                 ],
@@ -52,6 +56,7 @@ class _SetPageState extends State<SetPage> {
             ),
           ),
         );
+        i++;
       },
     );
     setState(

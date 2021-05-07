@@ -38,41 +38,40 @@ class _ExercisePageState extends State<ExercisePage> {
       (post) {
         listItems.add(
           ReuseableCard(
-              kActiveCardColor,
-              Container(
-                height: 120,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Text(
-                      post.keys.first,
-                      style: TextStyle(
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold,
-                      ),
+            kActiveCardColor,
+            Container(
+              height: 120,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Text(
+                    post.keys.first,
+                    style: TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
                     ),
-                    Text(
-                      "Sets: ${post[post.keys.first].length}",
-                      style:
-                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
-              ), () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) {
-                  print(post.keys.first.toString());
-
-                  return SetPage(
-                    title: post.keys.first,
-                  );
-                },
+                  ),
+                  Text(
+                    "Sets: ${post[post.keys.first].length}",
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                  ),
+                ],
               ),
-            );
-            //go to the set list for that date where you can see more info about the sets
-          }),
+            ),
+            () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return SetPage(
+                      title: post.keys.first.toString(),
+                      exercise: title,
+                    );
+                  },
+                ),
+              );
+            },
+          ),
         );
       },
     );
