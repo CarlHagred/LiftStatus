@@ -29,8 +29,6 @@ class _ExercisePageState extends State<ExercisePage> {
 
   List<Widget> itemsData = [];
 
-  var test = {"hello": "there"};
-
   void getPostsData() {
     List<dynamic> responseList = exercises[title]["data"];
     List<Widget> listItems = [];

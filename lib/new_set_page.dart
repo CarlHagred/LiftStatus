@@ -175,7 +175,6 @@ class _InputPageState extends State<InputPage> {
               setState(
                 () {
                   var inserted = false;
-                  //var date = selectedDate.toLocal().toString().split(' ')[0];
 
                   List<dynamic> responseList = exercises[title]["data"];
                   responseList.forEach(
