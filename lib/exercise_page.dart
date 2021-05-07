@@ -56,13 +56,13 @@ class _ExercisePageState extends State<ExercisePage> {
                 ],
               ),
             ),
-            () {
-              Navigator.push(
+            () async {
+              await Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) {
                     return SetPage(
-                      title: post.keys.first.toString(),
+                      title: post.keys.first,
                       exercise: title,
                     );
                   },
@@ -128,9 +128,10 @@ class _ExercisePageState extends State<ExercisePage> {
               child: Padding(
                 padding: EdgeInsets.all(15.0),
                 child: Chart(
-                    title: title,
-                    chartData: chartData,
-                    gradientColor: gradientColor),
+                  title: title,
+                  chartData: chartData,
+                  gradientColor: gradientColor,
+                ),
               ),
             ),
             Expanded(

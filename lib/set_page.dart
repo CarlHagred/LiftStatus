@@ -20,11 +20,14 @@ class _SetPageState extends State<SetPage> {
   List<Widget> itemsData = [];
 
   void getPostsData() {
-    List<dynamic> responseList = exercises[exercise]["data"];
+    List responseList = exercises[exercise]["data"];
+    Map convertedList = responseList[0];
+    print(convertedList);
     List<Widget> listItems = [];
     int i = 0;
-    responseList.forEach(
+    /*responseList.forEach(
       (post) {
+        print(post[title]);
         String name = post[title][i]["name"];
         int weight = post[title][i]["weight"];
         int reps = post[title][i]["reps"];
@@ -56,6 +59,7 @@ class _SetPageState extends State<SetPage> {
             ),
           ),
         );
+        //print(name);
         i++;
       },
     );
@@ -63,7 +67,7 @@ class _SetPageState extends State<SetPage> {
       () {
         itemsData = listItems;
       },
-    );
+    );*/
   }
 
   @override
@@ -74,12 +78,13 @@ class _SetPageState extends State<SetPage> {
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
+    //final Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Container(
+      body: Text(
+          'hello'), /*Container(
         height: size.height,
         child: Column(
           children: <Widget>[
@@ -90,7 +95,7 @@ class _SetPageState extends State<SetPage> {
             ),
           ],
         ),
-      ),
+      ),*/
     );
   }
 }

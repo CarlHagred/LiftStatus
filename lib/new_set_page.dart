@@ -48,17 +48,18 @@ class _InputPageState extends State<InputPage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           ReuseableCard(
-              kActiveCardColor,
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TextField(
-                    controller: myController,
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(), hintText: 'Name the set'),
-                  ),
-                ],
-              )),
+            kActiveCardColor,
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextField(
+                  controller: myController,
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(), hintText: 'Name the set'),
+                ),
+              ],
+            ),
+          ),
           Expanded(
             child: ReuseableCard(
               kActiveCardColor,
