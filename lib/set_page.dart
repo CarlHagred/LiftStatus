@@ -32,33 +32,42 @@ class _SetPageState extends State<SetPage> {
         listItems.add(
           ReuseableCard(
             kActiveCardColor,
-            Container(
-              height: 120,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "$name: ",
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      Text(
-                        "${weight}kg ",
-                        style: TextStyle(
-                          fontSize: 40,
-                          fontWeight: FontWeight.bold,
+            GestureDetector(
+              onPanUpdate: (details) {
+                if (details.delta.dx > 10) {
+                  //exercises.removeWhere((key, value) => false);
+                  refresh();
+                }
+              },
+              child: Container(
+                height: 120,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "$name: ",
+                      style:
+                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                        Text(
+                          "${weight}kg ",
+                          style: TextStyle(
+                            fontSize: 40,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                      Text(
-                        "Reps: $reps",
-                        style: TextStyle(
-                            fontSize: 40, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                ],
+                        Text(
+                          "Reps: $reps",
+                          style: TextStyle(
+                              fontSize: 40, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -70,6 +79,10 @@ class _SetPageState extends State<SetPage> {
         itemsData = listItems;
       },
     );
+  }
+
+  void refresh() {
+    getPostsData();
   }
 
   @override
