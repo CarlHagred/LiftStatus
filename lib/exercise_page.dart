@@ -30,10 +30,10 @@ class _ExercisePageState extends State<ExercisePage> {
   List<Widget> itemsData = [];
 
   void getPostsData() {
-    List<dynamic> responseList = exercises[title]["data"];
+    Map responseList = exercises[title]["data"];
     List<Widget> listItems = [];
     responseList.forEach(
-      (post) {
+      (key, value) {
         listItems.add(
           ReuseableCard(
             kActiveCardColor,
@@ -43,14 +43,14 @@ class _ExercisePageState extends State<ExercisePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Text(
-                    post.keys.first,
+                    key,
                     style: TextStyle(
                       fontSize: 40,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
-                    "Sets: ${post[post.keys.first].length}",
+                    "Sets: ${value.length}",
                     style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                   ),
                 ],
@@ -62,7 +62,7 @@ class _ExercisePageState extends State<ExercisePage> {
                 MaterialPageRoute(
                   builder: (context) {
                     return SetPage(
-                      title: post.keys.first,
+                      title: key,
                       exercise: title,
                     );
                   },
@@ -71,18 +71,18 @@ class _ExercisePageState extends State<ExercisePage> {
             },
           ),
         );
-      },
-    );
-    setState(
-      () {
-        itemsData = listItems;
+        setState(
+          () {
+            itemsData = listItems;
+          },
+        );
       },
     );
   }
 
   List<FlSpot> chartData = [];
   void getChartData() {
-    List<dynamic> responseList = exercises[title]["data"];
+    /*List<dynamic> responseList = exercises[title]["data"];
     List<FlSpot> responseChartList = [];
     double j = 0;
 
@@ -102,7 +102,7 @@ class _ExercisePageState extends State<ExercisePage> {
     );
     setState(() {
       chartData = responseChartList;
-    });
+    });*/
   }
 
   @override
