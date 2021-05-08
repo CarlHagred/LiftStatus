@@ -2,7 +2,7 @@ var exercises = {
   "bench": {
     "pb": 120,
     "data": {
-      "2021-16-04": [
+      "2021-04-16": [
         {
           "name": "first set",
           "weight": 100,
@@ -24,7 +24,7 @@ var exercises = {
           "reps": 6,
         },
       ],
-      "2021-16-05": [
+      "2021-04-17": [
         {
           "name": "first set",
           "weight": 100,
@@ -41,7 +41,7 @@ var exercises = {
   "biceps": {
     "pb": 120,
     "data": {
-      "2021-16-04": [
+      "2021-04-16": [
         {
           "name": "first set",
           "weight": 100,
@@ -63,7 +63,7 @@ var exercises = {
           "reps": 6,
         },
       ],
-      "2021-16-05": [
+      "2021-04-17": [
         {
           "name": "first set",
           "weight": 100,

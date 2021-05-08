@@ -175,43 +175,28 @@ class _InputPageState extends State<InputPage> {
             onTap: () {
               setState(
                 () {
-                  var inserted = false;
-
-                  List<dynamic> responseList = exercises[title]["data"];
-                  responseList.forEach(
-                    (post) {
-                      for (var i = 0; i < post[post.keys.first].length; i++) {
-                        if (post.keys.toString() ==
-                            '(${selectedDate.toLocal().toString().split(' ')[0]})') {
-                          print('hej' + post.toString());
-                          inserted = true;
-                          post[selectedDate.toLocal().toString().split(' ')[0]]
-                              .add(
-                            {
-                              "name": myController.text,
-                              "weight": weight,
-                              "reps": repetitions,
-                            },
-                          );
-                          break;
-                        }
-                      }
-                    },
-                  );
-                  if (!inserted) {
-                    List post = exercises[title]["data"];
-                    print('hej' + post.toString());
-                    post.add(
+                  List food = ['apple', 'banana'];
+                  Map responseList = exercises[title]["data"];
+                  if (responseList.containsKey(
+                      selectedDate.toLocal().toString().split(' ')[0])) {
+                    responseList[
+                            selectedDate.toLocal().toString().split(' ')[0]]
+                        .add(
                       {
-                        selectedDate.toLocal().toString().split(' ')[0]: [
-                          {
-                            "name": myController.text,
-                            "weight": weight,
-                            "reps": repetitions,
-                          },
-                        ],
+                        "name": myController.text,
+                        "weight": weight,
+                        "reps": repetitions,
                       },
                     );
+                  } else {
+                    responseList[
+                        selectedDate.toLocal().toString().split(' ')[0]] = [
+                      {
+                        "name": myController.text,
+                        "weight": weight,
+                        "reps": repetitions,
+                      },
+                    ];
                   }
                 },
               );

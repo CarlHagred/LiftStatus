@@ -100,7 +100,7 @@ class _HomeScreenState extends State<HomeScreenPage> {
                         setState(() {
                           exercises['${myController.text}'] = {
                             "pb": 0,
-                            "data": []
+                            "data": {}
                           };
                         });
                         getPostsData();
