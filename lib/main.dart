@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lift_status/home_screen.dart';
+import 'package:lift_status/screens/home_screen.dart';
 
 void main() => runApp(LiftStatus());
 

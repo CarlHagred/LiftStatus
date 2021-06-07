@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:lift_status/set_page.dart';
+import 'package:lift_status/screens/set_page.dart';
 import 'new_set_page.dart';
-import 'model/sets.dart';
+import '../model/sets.dart';
 import 'package:fl_chart/fl_chart.dart';
-import 'constant.dart';
-import 'components/chart.dart';
-import 'components/reuseable_card.dart';
+import '../constant.dart';
+import '../widgets/chart.dart';
+import '../widgets/reuseable_card.dart';
 
 class ExercisePage extends StatefulWidget {
   ExercisePage({this.title});

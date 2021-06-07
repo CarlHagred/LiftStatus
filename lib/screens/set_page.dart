@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'model/sets.dart';
-import 'constant.dart';
-import 'components/reuseable_card.dart';
+import '../model/sets.dart';
+import '../constant.dart';
+import '../widgets/reuseable_card.dart';
 
 class SetPage extends StatefulWidget {
   SetPage({this.title, this.exercise});
@@ -20,7 +20,9 @@ class _SetPageState extends State<SetPage> {
   List<Widget> itemsData = [];
 
   void getPostsData() {
-    Map responseList = exercises[exercise]["data"];
+    var data = "data";
+
+    Map responseList = exercises[exercise][data];
     List covertedList = responseList[title];
     print(covertedList);
     List<Widget> listItems = [];
@@ -30,6 +32,20 @@ class _SetPageState extends State<SetPage> {
         int weight = element["weight"];
         int reps = element["reps"];
         listItems.add(
+          /*Dismissible(
+            key: Key('item ${element}'),
+            onDismissed: (DismissDirection direction) {
+              if (direction == DismissDirection.startToEnd) {
+                print("Add to favorite");
+              } else {
+                print('Remove item');
+              }
+
+              setState(() {
+                exercises[exercise]["data"][title].removeAt(index);
+              });
+            },
+            child:*/
           ReuseableCard(
             kActiveCardColor,
             GestureDetector(
@@ -71,6 +87,7 @@ class _SetPageState extends State<SetPage> {
               ),
             ),
           ),
+          //),
         );
       },
     );

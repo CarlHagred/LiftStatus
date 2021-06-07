@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lift_status/model/sets.dart';
-import 'components/reuseable_card.dart';
-import 'constant.dart';
-import 'components/buttom_button.dart';
-import 'components/round_icon_button.dart';
-import 'model/sets.dart';
+import '../widgets/reuseable_card.dart';
+import '../constant.dart';
+import '../widgets/buttom_button.dart';
+import '../widgets/round_icon_button.dart';
+import '../model/sets.dart';
 
 const double buttomContainerHeight = 80;
 
