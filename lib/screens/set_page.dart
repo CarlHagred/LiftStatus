@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../model/sets.dart';
+import '../model/set.dart';
 import '../constant.dart';
 import '../widgets/reuseable_card.dart';
-
+/*
 class SetPage extends StatefulWidget {
   SetPage({this.title, this.exercise});
 
@@ -130,3 +130,4 @@ class _SetPageState extends State<SetPage> {
     );
   }
 }
+*/

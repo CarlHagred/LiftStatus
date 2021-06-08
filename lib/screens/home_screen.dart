@@ -1,6 +1,6 @@
 import 'package:lift_status/screens/exercise_page.dart';
 import 'package:flutter/material.dart';
-import '../model/sets.dart';
+import '../model/set.dart';
 
 class HomeScreenPage extends StatefulWidget {
   HomeScreenPage({this.title});

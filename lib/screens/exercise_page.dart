@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:lift_status/screens/set_page.dart';
 import 'new_set_page.dart';
-import '../model/sets.dart';
+import '../model/set.dart';
 import 'package:fl_chart/fl_chart.dart';
 import '../constant.dart';
 import '../widgets/chart.dart';
 import '../widgets/reuseable_card.dart';
-
+/*
 class ExercisePage extends StatefulWidget {
   ExercisePage({this.title});
 
@@ -30,7 +30,7 @@ class _ExercisePageState extends State<ExercisePage> {
   List<Widget> itemsData = [];
   List<FlSpot> chartData = [];
 
-  void getPostsData() {
+  /*void getPostsData() {
     Map responseList = exercises[title]["data"];
     List<FlSpot> responseChartList = [];
     List<Widget> listItems = [];
@@ -149,3 +149,5 @@ class _ExercisePageState extends State<ExercisePage> {
     );
   }
 }
+
+ */
