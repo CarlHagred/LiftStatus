@@ -30,7 +30,7 @@ class _ExercisePageState extends State<ExercisePage> {
   List<Widget> itemsData = [];
   List<FlSpot> chartData = [];
 
-  /*void getPostsData() {
+  void getPostsData() {
     Map responseList = exercises[title]["data"];
     List<FlSpot> responseChartList = [];
     List<Widget> listItems = [];
@@ -151,3 +151,5 @@ class _ExercisePageState extends State<ExercisePage> {
 }
 
  */
+
+

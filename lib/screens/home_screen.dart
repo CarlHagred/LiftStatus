@@ -1,5 +1,6 @@
 import 'package:lift_status/screens/exercise_page.dart';
 import 'package:flutter/material.dart';
+import 'package:lift_status/widgets/homescreenList/exercise_list.dart';
 import '../model/set.dart';
 
 class HomeScreenPage extends StatefulWidget {
@@ -15,7 +16,7 @@ class _HomeScreenState extends State<HomeScreenPage> {
   double topContainer = 0;
   ScrollController controller = ScrollController();
   List<Widget> itemsData = [];
-  void getPostsData() {
+ /* void getPostsData() {
     List<Widget> responseList = [];
     for (var i = 0; i < exercises.length; i++) {
       responseList.add(
@@ -59,7 +60,7 @@ class _HomeScreenState extends State<HomeScreenPage> {
     super.initState();
     getPostsData();
   }
-
+*/
   final myController = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -72,9 +73,10 @@ class _HomeScreenState extends State<HomeScreenPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Expanded(
-              child: ListView(
+              child: TasksList(),
+              /*ListView(
                 children: itemsData,
-              ),
+              ),*/
             ),
           ],
         ),
@@ -96,7 +98,7 @@ class _HomeScreenState extends State<HomeScreenPage> {
                   TextButton(
                     child: Text('Add'),
                     onPressed: () {
-                      if (myController.text.isNotEmpty) {
+                      /*if (myController.text.isNotEmpty) {
                         setState(() {
                           exercises['${myController.text}'] = {
                             "pb": 0,
@@ -104,7 +106,7 @@ class _HomeScreenState extends State<HomeScreenPage> {
                           };
                         });
                         getPostsData();
-                      }
+                      }*/
                       Navigator.pop(context);
                     },
                   ),

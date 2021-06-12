@@ -5,11 +5,27 @@ import 'package:lift_status/model/exercise.dart';
 import 'package:lift_status/model/set.dart';
 import 'dart:collection';
 
-class ExerciseData extends ChangeNotifier {
+class ExerciseData extends ChangeNotifier{
 
   List<Exercise> _exercises = [
     Exercise(
       name: 'bench',
+      sets: [
+        Set(name: 'first set', weight: 100, reps: 6),
+        Set(name: 'second set', weight: 100, reps: 6),
+        Set(name: 'third set', weight: 100, reps: 6),
+      ],
+    ),
+    Exercise(
+      name: 'squats',
+      sets: [
+        Set(name: 'first set', weight: 100, reps: 6),
+        Set(name: 'second set', weight: 100, reps: 6),
+        Set(name: 'third set', weight: 100, reps: 6),
+      ],
+    ),
+    Exercise(
+      name: 'shoulder press',
       sets: [
         Set(name: 'first set', weight: 100, reps: 6),
         Set(name: 'second set', weight: 100, reps: 6),
@@ -22,7 +38,9 @@ class ExerciseData extends ChangeNotifier {
     return UnmodifiableListView(_exercises);
   }
 
-
+  int get exercisesCount {
+    return _exercises.length;
+  }
 
 }
 

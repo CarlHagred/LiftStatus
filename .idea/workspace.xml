@@ -20,17 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce3dad82-9204-43f1-8b24-9e8b4fe4c620" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/model/exercise.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/model/set.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/widgets/homescreenList/exercise_list.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/lift_status_android.iml" beforeDir="false" afterPath="$PROJECT_DIR$/android/lift_status_android.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/model/exercises.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/model/sets.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/model/exercise_data.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/model/exercise_data.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/model/exercise_data.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/exercise_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/exercise_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/home_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/new_set_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/new_set_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/set_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/set_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,23 +77,24 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1400" height="279" key="GridCell.Tab.0.bottom" timestamp="1623058000744">
+    <state width="1476" height="281" key="GridCell.Tab.0.bottom" timestamp="1623533675270">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1400" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1623058000744" />
-    <state width="1400" height="279" key="GridCell.Tab.0.center" timestamp="1623058000743">
+    <state width="1476" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1623533675270" />
+    <state width="1476" height="281" key="GridCell.Tab.0.center" timestamp="1623533675269">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1400" height="279" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1623058000743" />
-    <state width="1400" height="279" key="GridCell.Tab.0.left" timestamp="1623058000743">
+    <state width="1476" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1623533675269" />
+    <state width="1476" height="281" key="GridCell.Tab.0.left" timestamp="1623533675269">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1400" height="279" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1623058000743" />
-    <state width="1400" height="279" key="GridCell.Tab.0.right" timestamp="1623058000744">
+    <state width="1476" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1623533675269" />
+    <state width="1476" height="281" key="GridCell.Tab.0.right" timestamp="1623533675269">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1400" height="279" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1623058000744" />
+    <state width="1476" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1623533675269" />
   </component>
 </project>
