@@ -1,22 +1,70 @@
-import 'package:lift_status/screens/exercise_page.dart';
+import 'package:lift_status/model/exercise_data.dart';
 import 'package:flutter/material.dart';
 import 'package:lift_status/widgets/homescreenList/exercise_list.dart';
-import '../model/set.dart';
+import 'package:provider/provider.dart';
 
-class HomeScreenPage extends StatefulWidget {
+
+class HomeScreenPage extends StatelessWidget {
   HomeScreenPage({this.title});
 
   final String title;
 
-  @override
-  _HomeScreenState createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreenPage> {
   double topContainer = 0;
   ScrollController controller = ScrollController();
   List<Widget> itemsData = [];
- /* void getPostsData() {
+  final myController = TextEditingController();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(title),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Expanded(
+              child: TasksList(),
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                title: Text('Add '),//Exercise
+                content: TextField(
+                  onChanged: (value) {},
+                  controller: myController,
+                  decoration: InputDecoration(
+                      hintText: "Type the name of the exercise"),
+                ),
+                actions: [
+                  TextButton(
+                    child: Text('Add'),
+                    onPressed: () {
+                      if (myController.text.isNotEmpty) {
+                        Provider.of<ExerciseData>(context).addExercise(myController.text.toString());
+                      }
+                      Navigator.pop(context);
+                    },
+                  ),
+                ],
+              );
+            },
+          );
+        },
+        tooltip: 'newExercise',
+        child: Icon(Icons.add),
+      ),
+    );
+  }
+}
+
+/* void getPostsData() {
     List<Widget> responseList = [];
     for (var i = 0; i < exercises.length; i++) {
       responseList.add(
@@ -61,45 +109,8 @@ class _HomeScreenState extends State<HomeScreenPage> {
     getPostsData();
   }
 */
-  final myController = TextEditingController();
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Expanded(
-              child: TasksList(),
-              /*ListView(
-                children: itemsData,
-              ),*/
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          showDialog(
-            context: context,
-            builder: (context) {
-              return AlertDialog(
-                title: Text('Add Exercise'),
-                content: TextField(
-                  onChanged: (value) {},
-                  controller: myController,
-                  decoration: InputDecoration(
-                      hintText: "Type the name of the exercise"),
-                ),
-                actions: [
-                  TextButton(
-                    child: Text('Add'),
-                    onPressed: () {
-                      /*if (myController.text.isNotEmpty) {
-                        setState(() {
+
+/*setState(() {
                           exercises['${myController.text}'] = {
                             "pb": 0,
                             "data": {}
@@ -107,17 +118,3 @@ class _HomeScreenState extends State<HomeScreenPage> {
                         });
                         getPostsData();
                       }*/
-                      Navigator.pop(context);
-                    },
-                  ),
-                ],
-              );
-            },
-          );
-        },
-        tooltip: 'newExercise',
-        child: Icon(Icons.add),
-      ),
-    );
-  }
-}

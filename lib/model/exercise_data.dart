@@ -1,9 +1,7 @@
 import 'dart:collection';
-
 import 'package:flutter/cupertino.dart';
 import 'package:lift_status/model/exercise.dart';
 import 'package:lift_status/model/set.dart';
-import 'dart:collection';
 
 class ExerciseData extends ChangeNotifier{
 
@@ -42,6 +40,24 @@ class ExerciseData extends ChangeNotifier{
     return _exercises.length;
   }
 
+  void addExercise(String newExerciseName) {
+    final exercise = Exercise(
+      name: newExerciseName,
+      sets: [],
+    );
+    _exercises.add(exercise);
+    notifyListeners();
+  }
+
+  void updateTask(Exercise exercise) {
+    //task.toggleDone();
+    notifyListeners();
+  }
+
+  void deleteTask(Exercise exercise) {
+    _exercises.remove(exercise);
+    notifyListeners();
+  }
 }
 
 
