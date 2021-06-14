@@ -51,6 +51,8 @@ class ExerciseData extends ChangeNotifier{
 
   void updateTask(Exercise exercise) {
     //task.toggleDone();
+    _exercises.remove(exercise);
+    _exercises.add(exercise);
     notifyListeners();
   }
 
@@ -58,6 +60,7 @@ class ExerciseData extends ChangeNotifier{
     _exercises.remove(exercise);
     notifyListeners();
   }
+
 }
 
 

@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 class Exercise {
   String name;
   List sets;

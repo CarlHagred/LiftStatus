@@ -35,7 +35,7 @@ class HomeScreenPage extends StatelessWidget {
             context: context,
             builder: (context) {
               return AlertDialog(
-                title: Text('Add '),//Exercise
+                title: Text('Add Exercise'),
                 content: TextField(
                   onChanged: (value) {},
                   controller: myController,
@@ -47,7 +47,7 @@ class HomeScreenPage extends StatelessWidget {
                     child: Text('Add'),
                     onPressed: () {
                       if (myController.text.isNotEmpty) {
-                        Provider.of<ExerciseData>(context).addExercise(myController.text.toString());
+                        Provider.of<ExerciseData>(context, listen: false).addExercise(myController.text.toString());
                       }
                       Navigator.pop(context);
                     },

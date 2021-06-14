@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lift_status/model/exercise_data.dart';
+import 'package:lift_status/screens/exercise_page.dart';
 import 'package:provider/provider.dart';
 
 class TasksList extends StatelessWidget {
@@ -10,14 +11,14 @@ class TasksList extends StatelessWidget {
         return ListView.builder(
           itemCount: taskData.exercisesCount,
           itemBuilder: (context, index) {
-            final task = taskData.exercises[index];
+            final exercise = taskData.exercises[index];
             return Container(
               height: 50,
               margin: EdgeInsets.all(2),
               child: ElevatedButton(
                 child: Center(
                   child: Text(
-                    '${task.name}',
+                    '${exercise.name}',
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -28,14 +29,14 @@ class TasksList extends StatelessWidget {
                   primary: Colors.grey[800],
                 ),
                 onPressed: () {
-                 /* Navigator.push(
+                  Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return ExercisePage(title: task);
+                        return ExercisePage(exercise: exercise);
                       },
                     ),
-                  );*/
+                  );
                 },
               ),
             );
