@@ -34,3 +34,10 @@ const kBMITextStyle = TextStyle(
 const kBodyTextStyle = TextStyle(
   fontSize: 22,
 );
+
+const List<Color> kGradientColor = [
+  Color(0xFF64FFDA),
+  Colors.cyan,
+  Colors.lightBlue,
+  Colors.blue,
+];

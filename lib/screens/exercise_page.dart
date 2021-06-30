@@ -2,33 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:lift_status/model/exercise.dart';
 import 'package:fl_chart/fl_chart.dart';
 import '../constant.dart';
-import '../widgets/chart.dart';
+import '../widgets/exerciseDiagram/chart.dart';
 import '../widgets/reuseable_card.dart';
 
 class ExercisePage extends StatefulWidget {
-  ExercisePage({this.exercise});
+  ExercisePage({this.exercise, this.num});
 
   final Exercise exercise;
+  final int num;
 
   @override
   _ExercisePageState createState() => _ExercisePageState();
 }
 
 class _ExercisePageState extends State<ExercisePage> {
-  final List<Color> gradientColor = [
-    Color(0xFF64FFDA),
-    Colors.cyan,
-    Colors.lightBlue,
-    Colors.blue,
-  ];
   String get title => widget.exercise.name;
   bool closeTopContainer = false;
   double topContainer = 0;
 
   List<Widget> itemsData = [];
-  List<FlSpot> chartData = [];
 
- /* void getPostsData() {
+  /* void getPostsData() {
     Map responseList = exercises[title]["data"];
     List<FlSpot> responseChartList = [];
     List<Widget> listItems = [];
@@ -113,9 +107,9 @@ class _ExercisePageState extends State<ExercisePage> {
               child: Padding(
                 padding: EdgeInsets.all(15.0),
                 child: Chart(
-                  title: title,
-                  chartData: chartData,
-                  gradientColor: gradientColor,
+                  num: widget.num,
+                  //chartData: chartData,
+                  //gradientColor: kGradientColor,
                 ),
               ),
             ),
@@ -147,7 +141,3 @@ class _ExercisePageState extends State<ExercisePage> {
     );
   }
 }
-
-
-
-
