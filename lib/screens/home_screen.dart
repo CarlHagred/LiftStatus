@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:lift_status/widgets/homescreenList/exercise_list.dart';
 import 'package:provider/provider.dart';
 
-
 class HomeScreenPage extends StatelessWidget {
   HomeScreenPage({this.title});
 
@@ -37,6 +36,7 @@ class HomeScreenPage extends StatelessWidget {
               return AlertDialog(
                 title: Text('Add Exercise'),
                 content: TextField(
+                  maxLength: 10,
                   onChanged: (value) {},
                   controller: myController,
                   decoration: InputDecoration(
@@ -47,7 +47,8 @@ class HomeScreenPage extends StatelessWidget {
                     child: Text('Add'),
                     onPressed: () {
                       if (myController.text.isNotEmpty) {
-                        Provider.of<ExerciseData>(context, listen: false).addExercise(myController.text.toString());
+                        Provider.of<ExerciseData>(context, listen: false)
+                            .addExercise(myController.text.toString());
                       }
                       Navigator.pop(context);
                     },

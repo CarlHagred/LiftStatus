@@ -36,6 +36,7 @@ class Chart extends StatelessWidget {
             lineBarsData: [
               LineChartBarData(
                   spots: taskData.setWeigtsFlSpot(exercise),
+                  dotData: FlDotData(show: false),
                   isCurved: true,
                   barWidth: 5,
                   colors: kGradientColor,

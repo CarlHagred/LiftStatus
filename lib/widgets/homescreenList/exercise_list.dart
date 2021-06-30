@@ -15,7 +15,7 @@ class TasksList extends StatelessWidget {
             final exercise = taskData.exercises[index];
             return Container(
               height: 100,
-              margin: EdgeInsets.all(2),
+              margin: EdgeInsets.all(8),
               child: ElevatedButton(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -23,8 +23,9 @@ class TasksList extends StatelessWidget {
                     Center(
                       child: Text(
                         '${exercise.name}',
+                        overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 22,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

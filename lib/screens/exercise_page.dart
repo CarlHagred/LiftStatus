@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lift_status/model/exercise.dart';
-import 'package:fl_chart/fl_chart.dart';
-import '../constant.dart';
 import '../widgets/exerciseDiagram/chart.dart';
-import '../widgets/reuseable_card.dart';
 
 class ExercisePage extends StatefulWidget {
   ExercisePage({this.exercise, this.num});
@@ -21,6 +18,58 @@ class _ExercisePageState extends State<ExercisePage> {
   double topContainer = 0;
 
   List<Widget> itemsData = [];
+
+  @override
+  Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.exercise.name),
+      ),
+      body: Container(
+        height: size.height,
+        child: Column(
+          children: <Widget>[
+            Container(
+              height: 300,
+              child: Padding(
+                padding: EdgeInsets.all(15.0),
+                child: Chart(
+                  num: widget.num,
+                  //chartData: chartData,
+                  //gradientColor: kGradientColor,
+                ),
+              ),
+            ),
+            Expanded(
+              child: ListView(
+                children: itemsData,
+              ),
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          /*await Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return InputPage(
+                  title: title,
+                );
+              },
+            ),
+          );
+          getPostsData();*/
+        },
+        tooltip: 'newExercise',
+        child: Icon(Icons.add),
+      ),
+    );
+  }
+}
+
 
   /* void getPostsData() {
     Map responseList = exercises[title]["data"];
@@ -90,54 +139,3 @@ class _ExercisePageState extends State<ExercisePage> {
     super.initState();
     getPostsData();
   }*/
-
-  @override
-  Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.exercise.name),
-      ),
-      body: Container(
-        height: size.height,
-        child: Column(
-          children: <Widget>[
-            Container(
-              height: 300,
-              child: Padding(
-                padding: EdgeInsets.all(15.0),
-                child: Chart(
-                  num: widget.num,
-                  //chartData: chartData,
-                  //gradientColor: kGradientColor,
-                ),
-              ),
-            ),
-            Expanded(
-              child: ListView(
-                children: itemsData,
-              ),
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          /*await Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) {
-                return InputPage(
-                  title: title,
-                );
-              },
-            ),
-          );
-          getPostsData();*/
-        },
-        tooltip: 'newExercise',
-        child: Icon(Icons.add),
-      ),
-    );
-  }
-}
