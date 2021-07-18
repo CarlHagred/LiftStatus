@@ -26,7 +26,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ce3dad82-9204-43f1-8b24-9e8b4fe4c620" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/exercise_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/exercise_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/homescreenList/exercise_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/homescreenList/exercise_list.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/setList/set_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/setList/set_list.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +56,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
@@ -87,7 +89,7 @@
       <workItem from="1626624801319" duration="36000" />
       <workItem from="1626625144557" duration="413000" />
       <workItem from="1626627032528" duration="711000" />
-      <workItem from="1626628361864" duration="4594000" />
+      <workItem from="1626628361864" duration="6649000" />
     </task>
     <servers />
   </component>

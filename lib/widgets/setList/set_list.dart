@@ -32,7 +32,7 @@ class SetList extends StatelessWidget {
                   children: [
                     Center(
                       child: Text(
-                        '${set.name}',
+                        set.name.length > 10 ? '${set.name.substring(0, 10)}...' : set.name,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontSize: 22,
@@ -45,8 +45,18 @@ class SetList extends StatelessWidget {
                       width: 200,
                       child: Padding(
                         padding: EdgeInsets.all(10.0),
-                        child: Chart(
-                          num: index,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text('Weight: ${set.weight}    '),
+                                Text('Reps: ${set.reps} '),
+                              ],
+                            ),
+                            Text(set.date != null ?  'Date: ${set.date}' : ''),
+                          ],
                         ),
                       ),
                     ),

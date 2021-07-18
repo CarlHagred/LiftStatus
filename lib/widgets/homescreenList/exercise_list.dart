@@ -28,7 +28,7 @@ class TasksList extends StatelessWidget {
                     children: [
                       Center(
                         child: Text(
-                          '${exercise.name}',
+                          exercise.name.length > 10 ? '${exercise.name.substring(0, 10)}...' : exercise.name,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                             fontSize: 22,
