@@ -4,7 +4,7 @@ import 'package:lift_status/widgets/setList/set_list.dart';
 import '../widgets/exerciseDiagram/chart.dart';
 
 class ExercisePage extends StatefulWidget {
-  ExercisePage({this.exercise, this.num});
+  ExercisePage({this.exercise,@required this.num});
 
   final Exercise exercise;
   final int num;
@@ -37,7 +37,7 @@ class _ExercisePageState extends State<ExercisePage> {
                 num: widget.num,
               ),
             ),
-            Expanded(child: SetList()),
+            Expanded(child: SetList(num: widget.num,)),
           ],
         ),
       ),

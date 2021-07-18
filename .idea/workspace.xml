@@ -25,16 +25,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce3dad82-9204-43f1-8b24-9e8b4fe4c620" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/model/set_data.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Podfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/model/exercise.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/model/exercise.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/model/exercise_data.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/model/exercise_data.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/exercise_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/exercise_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/exerciseDiagram/chart.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/exerciseDiagram/chart.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/homescreenList/exercise_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/homescreenList/exercise_list.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +55,6 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="true" />
-    <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
@@ -96,7 +87,7 @@
       <workItem from="1626624801319" duration="36000" />
       <workItem from="1626625144557" duration="413000" />
       <workItem from="1626627032528" duration="711000" />
-      <workItem from="1626628361864" duration="3579000" />
+      <workItem from="1626628361864" duration="4594000" />
     </task>
     <servers />
   </component>
