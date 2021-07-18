@@ -30,12 +30,12 @@ class Chart extends StatelessWidget {
             ),
             backgroundColor: kActiveCardColor,
             minX: 0,
-            maxX: exercise.sets.length.toDouble() - 1,
+            maxX: exercise.sets.sets.length.toDouble() - 1,
             minY: 0,
             maxY: 250,
             lineBarsData: [
               LineChartBarData(
-                  spots: taskData.setWeigtsFlSpot(exercise),
+                  spots: exercise.sets.getWeigtsFlSpot(),
                   dotData: FlDotData(show: false),
                   isCurved: true,
                   barWidth: 5,

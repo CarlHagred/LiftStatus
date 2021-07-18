@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -20,13 +25,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce3dad82-9204-43f1-8b24-9e8b4fe4c620" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/model/set_data.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Podfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/model/exercise.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/model/exercise.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/model/exercise_data.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/model/exercise_data.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/exercise_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/exercise_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/exerciseDiagram/chart.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/exerciseDiagram/chart.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/homescreenList/exercise_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/homescreenList/exercise_list.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_3" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -43,12 +58,31 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -59,8 +93,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1623057628476</updated>
+      <workItem from="1626624801319" duration="36000" />
+      <workItem from="1626625144557" duration="413000" />
+      <workItem from="1626627032528" duration="711000" />
+      <workItem from="1626628361864" duration="3579000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -73,31 +114,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="94" y="110" width="1336" height="836" key="AVDManager" timestamp="1623656759068">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="94" y="110" width="1336" height="836" key="AVDManager/0.0.1920.1040@0.0.1920.1040" timestamp="1623656759068" />
-    <state x="540" y="270" key="FileChooserDialogImpl" timestamp="1623677510684">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="540" y="270" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1623677510684" />
-    <state width="1473" height="280" key="GridCell.Tab.0.bottom" timestamp="1623667204630">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1473" height="280" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1623667204630" />
-    <state width="1473" height="280" key="GridCell.Tab.0.center" timestamp="1623667204630">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1473" height="280" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1623667204630" />
-    <state width="1473" height="280" key="GridCell.Tab.0.left" timestamp="1623667204630">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1473" height="280" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1623667204630" />
-    <state width="1473" height="280" key="GridCell.Tab.0.right" timestamp="1623667204630">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1473" height="280" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1623667204630" />
   </component>
 </project>

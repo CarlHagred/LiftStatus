@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lift_status/model/exercise.dart';
+import 'package:lift_status/widgets/setList/set_list.dart';
 import '../widgets/exerciseDiagram/chart.dart';
 
 class ExercisePage extends StatefulWidget {
@@ -32,20 +33,11 @@ class _ExercisePageState extends State<ExercisePage> {
           children: <Widget>[
             Container(
               height: 300,
-              child: Padding(
-                padding: EdgeInsets.all(15.0),
-                child: Chart(
-                  num: widget.num,
-                  //chartData: chartData,
-                  //gradientColor: kGradientColor,
-                ),
+              child: Chart(
+                num: widget.num,
               ),
             ),
-            Expanded(
-              child: ListView(
-                children: itemsData,
-              ),
-            ),
+            Expanded(child: SetList()),
           ],
         ),
       ),
@@ -70,8 +62,7 @@ class _ExercisePageState extends State<ExercisePage> {
   }
 }
 
-
-  /* void getPostsData() {
+/* void getPostsData() {
     Map responseList = exercises[title]["data"];
     List<FlSpot> responseChartList = [];
     List<Widget> listItems = [];

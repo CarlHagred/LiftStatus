@@ -1,8 +1,8 @@
-import 'dart:collection';
+import 'package:lift_status/model/set_data.dart';
 
 class Exercise {
   String name;
-  List sets;
+  SetData sets;
 
   Exercise({this.name, this.sets});
 }
