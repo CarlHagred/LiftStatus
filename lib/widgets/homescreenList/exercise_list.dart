@@ -28,7 +28,7 @@ class TasksList extends StatelessWidget {
                     children: [
                       Center(
                         child: Text(
-                          exercise.name.length > 10 ? '${exercise.name.substring(0, 10)}...' : exercise.name,
+                          exercise.name.length > 15 ? '${exercise.name.substring(0, 15)}...' : exercise.name,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                             fontSize: 22,
@@ -38,7 +38,7 @@ class TasksList extends StatelessWidget {
                       ),
                       Container(
                         height: 90,
-                        width: 200,
+                        width: 150,
                         child: Chart(
                           num: index,
                         ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lift_status/model/exercise.dart';
 import 'package:lift_status/widgets/setList/set_list.dart';
 import '../widgets/exerciseDiagram/chart.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 
 class ExercisePage extends StatefulWidget {
   ExercisePage({this.exercise,@required this.num});
@@ -31,11 +32,33 @@ class _ExercisePageState extends State<ExercisePage> {
         height: size.height,
         child: Column(
           children: <Widget>[
-            Container(
-              height: 300,
-              child: Chart(
-                num: widget.num,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                  height: 230,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      CircularPercentIndicator(
+                        radius: 100.0,
+                        lineWidth: 5.0,
+                        percent: 1.0,
+                        center: Text("100%"),
+                        progressColor: Colors.green,
+                      ),
+                      TextButton(onPressed: () {}, child: Text('Change Goal'))
+                    ],
+                  ),
+                ),
+                Container(
+                  height: 230,
+                  width: 250,
+                  child: Chart(
+                    num: widget.num,
+                  ),
+                ),
+              ],
             ),
             Expanded(child: SetList(num: widget.num,)),
           ],
