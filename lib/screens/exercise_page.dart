@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:lift_status/model/exercise.dart';
+import 'package:lift_status/model/exercise_data.dart';
+import 'package:lift_status/widgets/exercisePage/SetStatBox.dart';
 import 'package:lift_status/widgets/setList/set_list.dart';
-import '../widgets/exerciseDiagram/chart.dart';
-import 'package:percent_indicator/percent_indicator.dart';
+import 'package:provider/provider.dart';
 
 class ExercisePage extends StatefulWidget {
-  ExercisePage({this.exercise,@required this.num});
+  ExercisePage({this.exercise, @required this.num});
 
   final Exercise exercise;
   final int num;
@@ -21,67 +22,47 @@ class _ExercisePageState extends State<ExercisePage> {
 
   List<Widget> itemsData = [];
 
+
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.exercise.name),
-      ),
-      body: Container(
-        height: size.height,
-        child: Column(
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  height: 230,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      CircularPercentIndicator(
-                        radius: 100.0,
-                        lineWidth: 5.0,
-                        percent: 1.0,
-                        center: Text("100%"),
-                        progressColor: Colors.green,
-                      ),
-                      TextButton(onPressed: () {}, child: Text('Change Goal'))
-                    ],
-                  ),
-                ),
-                Container(
-                  height: 230,
-                  width: 250,
-                  child: Chart(
-                    num: widget.num,
-                  ),
-                ),
-              ],
-            ),
-            Expanded(child: SetList(num: widget.num,)),
-          ],
+    return Consumer<ExerciseData>(builder: (context, taskData, child) {
+      final sets = taskData.getExercise(widget.num).sets;
+      return Scaffold(
+        appBar: AppBar(
+          title: Text(widget.exercise.name),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          /*await Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) {
-                return InputPage(
-                  title: title,
-                );
-              },
-            ),
-          );
-          getPostsData();*/
-        },
-        tooltip: 'newExercise',
-        child: Icon(Icons.add),
-      ),
-    );
+        body: Container(
+          height: size.height,
+          child: Column(
+            children: <Widget>[
+              SetStatBox(sets: sets, widget: widget),
+              Expanded(
+                  child: SetList(
+                num: widget.num,
+              )),
+            ],
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () async {
+            /*await Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return InputPage(
+                    title: title,
+                  );
+                },
+              ),
+            );
+            getPostsData();*/
+          },
+          tooltip: 'newExercise',
+          child: Icon(Icons.add),
+        ),
+      );
+    });
   }
 }
 
