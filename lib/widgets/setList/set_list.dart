@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:lift_status/model/exercise_data.dart';
-import 'package:lift_status/widgets/exerciseDiagram/chart.dart';
 import 'package:provider/provider.dart';
 
 class SetList extends StatelessWidget {
@@ -65,18 +64,14 @@ class SetList extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   primary: Colors.grey[800],
                 ),
-                onPressed: () {/*
+                onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return ExercisePage(
-                          exercise: set,
-                          num: index,
-                        );
                       },
                     ),
-                  );*/
+                  );
                 },
               ),
             );

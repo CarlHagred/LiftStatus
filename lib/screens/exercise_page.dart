@@ -5,6 +5,8 @@ import 'package:lift_status/widgets/exercisePage/SetStatBox.dart';
 import 'package:lift_status/widgets/setList/set_list.dart';
 import 'package:provider/provider.dart';
 
+import 'new_set_page.dart';
+
 class ExercisePage extends StatefulWidget {
   ExercisePage({this.exercise, @required this.num});
 
@@ -46,17 +48,17 @@ class _ExercisePageState extends State<ExercisePage> {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () async {
-            /*await Navigator.push(
+            await Navigator.push(
               context,
               MaterialPageRoute(
                 builder: (context) {
                   return InputPage(
-                    title: title,
+                    title: '',
+                    setData: taskData.getExercise(widget.num).sets,
                   );
                 },
               ),
             );
-            getPostsData();*/
           },
           tooltip: 'newExercise',
           child: Icon(Icons.add),

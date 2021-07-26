@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:lift_status/model/set.dart';
+import 'package:lift_status/model/set_data.dart';
 import '../widgets/reuseable_card.dart';
 import '../constant.dart';
 import '../widgets/buttom_button.dart';
 import '../widgets/round_icon_button.dart';
-import '../model/set.dart';
-/*
+
 const double buttomContainerHeight = 80;
 
 class InputPage extends StatefulWidget {
-  InputPage({this.title});
+  InputPage({this.title, this.setData});
 
+  final SetData setData;
   final String title;
   @override
   _InputPageState createState() => _InputPageState();
@@ -173,10 +173,10 @@ class _InputPageState extends State<InputPage> {
           ButtomButton(
             title: 'SAVE',
             onTap: () {
-              setState(
+              /*setState(
                 () {
                   List food = ['apple', 'banana'];
-                  Map responseList = exercises[title]["data"];
+                  Map responseList = ;
                   if (responseList.containsKey(
                       selectedDate.toLocal().toString().split(' ')[0])) {
                     responseList[
@@ -199,7 +199,7 @@ class _InputPageState extends State<InputPage> {
                     ];
                   }
                 },
-              );
+              );*/
               Navigator.pop(context);
             },
           )
@@ -209,4 +209,4 @@ class _InputPageState extends State<InputPage> {
   }
 }
 
- */
+

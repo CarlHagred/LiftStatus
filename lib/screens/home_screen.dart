@@ -1,22 +1,31 @@
 import 'package:lift_status/model/exercise_data.dart';
 import 'package:flutter/material.dart';
-import 'package:lift_status/widgets/homescreenList/exercise_list.dart';
+import 'package:lift_status/widgets/homeScreenList/exercise_list.dart';
 import 'package:provider/provider.dart';
 
-class HomeScreenPage extends StatelessWidget {
+class HomeScreenPage extends StatefulWidget {
   HomeScreenPage({this.title});
 
   final String title;
 
+  @override
+  _HomeScreenPageState createState() => _HomeScreenPageState();
+}
+
+class _HomeScreenPageState extends State<HomeScreenPage> {
   double topContainer = 0;
+
   ScrollController controller = ScrollController();
+
   List<Widget> itemsData = [];
+
   final myController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text(widget.title),
       ),
       body: Center(
         child: Column(
