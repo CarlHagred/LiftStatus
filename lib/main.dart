@@ -9,7 +9,7 @@ class LiftStatus extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData.dark(),
       home: HomeScreenPage(
-        title: 'Lift Status',
+        title: 'Lift rStatus',
       ),
     );
   }
